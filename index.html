@@ -7,6 +7,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jagcart</title>
   <link rel="icon" href="AI-Titlelogo.png" type="image/x-icon">
+
+
+
+
+
+  <style>
+    #chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: white;
+      font-family: Arial, sans-serif;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    #chat-header {
+      background-color: #3299d9;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    #chat-log {
+      padding: 10px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    #user-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+
+    #user-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+    }
+
+    #user-input button {
+      padding: 10px;
+      border: none;
+      background-color: #3299d9;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+
+
+
+
+
+
+
 </head>
 
 <body bgcolor="#F1F3F6">
@@ -308,6 +370,41 @@
 
 
   </table>
+  <br><br>
+  <table border="0" width="100%">
+    <div id="chatbot">
+      <div id="chat-header">Jagcart AI Chatbot</div>
+      <div id="chat-log">
+        <div><strong>Bot:</strong> Hi there, Jagcart Assistant is here to help! What query you are having</div>
+      </div>
+      <div id="user-input">
+        <input type="text" id="message" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+    
+    <script>
+      function sendMessage() {
+        const input = document.getElementById('message');
+        const msg = input.value;
+        if (!msg) return;
+        
+        const log = document.getElementById('chat-log');
+        log.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
+    
+        // Simulate AI response
+        setTimeout(() => {
+          log.innerHTML += `<div><strong>Bot:</strong> I'm here to help you with Jagcart!</div>`;
+          log.scrollTop = log.scrollHeight;
+        }, 500);
+    
+        input.value = '';
+        log.scrollTop = log.scrollHeight;
+      }
+    </script>
+  </table>
+  
+  
 
 <br>
 
